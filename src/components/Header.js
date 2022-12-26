@@ -5,14 +5,23 @@ import {
     ShoppingCartIcon,
     Bars3Icon,
 } from "@heroicons/react/24/outline"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { useRouter } from 'next/router'
 function Header() {
+    const { data: session, status } = useSession()
+    const loading = status === "loading"
+    const router = useRouter()
+
+
     return (
         <header>
             {/* 上位のナビゲーション */}
             <div className='flex items-center bg-amazon_blue p-1 flex-grow py-2'>
                 <div className='mt-2 flex items-center flex-grow sm:flex-grow-0'>
                     <Image
+                        onClick={() => router.push('/')}
                         src='https://links.papareact.com/f90'
+                        alt=""
                         width={150}
                         height={40}
                         style={{ objectFit: "contain" }}
@@ -25,8 +34,12 @@ function Header() {
                 </div>
                 {/* 右側 */}
                 <div className='text-white flex items-center text-xs space-x-6 mx-6'>
-                    <div className='link'>
-                        <p>こんにちは Sonny Sangha</p>
+                    {session ?<div onClick={signOut} className='link'>signout </div>
+                    :<></>}
+                    <div onClick={signIn} className='link'>
+                        <p>
+                            {session ? `こんにちは ${session.user.name}さん` : `ログインはこちら`}
+                        </p>
                         <p className='font-extrabold md:text-sm'>Account & List</p>
                     </div>
                     <div className='link'>
@@ -34,8 +47,9 @@ function Header() {
                         <p className='font-extrabold md:text-sm'>& Orders</p>
                     </div>
                     <div className='relative link flex items-center'>
-
-                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold'>4</span>
+                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold'>
+                            4
+                        </span>
                         <ShoppingCartIcon className='h-10' />
                         <p className='hidden md:inline font-extrabold md:text-sm mt-2'>CARTS</p>
                     </div>
