@@ -2,15 +2,33 @@ import React from 'react'
 import Image from 'next/image'
 import { StarIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../slices/basketSlice';
+
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 
-function Product({ id, title, price, description, category, image }) {
-    const [rating] = useState(
+function Product({ id, title, rating, price, description, category, image, hasPrime }) {
+    const dispatch = useDispatch();
+    [rating] = useState(
         // Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
         3)
-    const [hasPrime] = useState(1);
+    [hasPrime] = useState(1);
+    const addItemToBasket = () => {
+        const product = {
+            id,
+            title,
+            rating,
+            price,
+            description,
+            category,
+            image,
+            hasPrime,
+        };
+        // 商品情報をreduxStoreに送る
+        dispatch(addToBasket(product));
+    };
 
     return (
 
@@ -31,7 +49,7 @@ function Product({ id, title, price, description, category, image }) {
                 {Array(rating)
                     .fill()
                     .map((_, i) => (
-                        <StarIcon className='h-5' />
+                        <StarIcon key={i} className='h-5 text-yellow-500' />
                     ))}
             </div>
 
@@ -47,7 +65,7 @@ function Product({ id, title, price, description, category, image }) {
                 </div>
             )}
 
-            <button className='mt-auto button'>カートに追加</button>
+            <button onClick={addItemToBasket} className='mt-auto button'>カートに追加</button>
 
         </div>
     )
