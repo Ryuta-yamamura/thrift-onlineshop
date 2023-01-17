@@ -11,9 +11,12 @@
     "@reduxjs/toolkit": "1.5.0",
     "@stripe/stripe-js": "^1.46.0",
     "@tailwindcss/line-clamp": "^0.2.0",
+    "@types/react": "^18.0.26",
     "axios": "^1.2.2",
     "firebase": "^9.15.0",
     "firebase-admin": "^9.12.0",
+    "graphql-request": "^5.1.0",
+    "html-react-parser": "^3.0.8",
     "micro": "^10.0.1",
     "moment": "^2.29.4",
     "next": "latest",
@@ -22,7 +25,9 @@
     "react-dom": "18.2.0",
     "react-redux": "7.2.2",
     "react-responsive-carousel": "^3.2.23",
-    "stripe": "^11.5.0"
+    "sass": "^1.57.1",
+    "stripe": "^11.5.0",
+    "typescript": "^4.9.4"
   },
   "license": "MIT",
   "devDependencies": {
