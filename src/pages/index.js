@@ -10,7 +10,6 @@ import {
 	TopPostCard,
 } from "../components";
 import { getPosts, getProducts } from "../services";
-import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 const Home = ({ posts, products }) => {
@@ -61,13 +60,11 @@ export default Home;
 // Fetch data at build time
 export async function getStaticProps(context) {
 	const posts = (await getPosts()) || [];
-	const session = await getSession(context);
 	const products = (await getProducts()) || [];
 
 	return {
 		props: {
 			posts,
-			session,
 			products,
 		},
 	};
