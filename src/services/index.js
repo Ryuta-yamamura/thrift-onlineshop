@@ -70,39 +70,6 @@ export const getProducts = async () => {
 	return result.productsConnection.edges;
 };
 
-// export const getPostDetails = async (slug) => {
-// 	const query = gql`
-// 		query GetPostDetails($slug: String!) {
-// 			post(where: { slug: $slug }) {
-// 				title
-// 				excerpt
-// 				featuredImage {
-// 					url
-// 				}
-// 				author {
-// 					name
-// 					bio
-// 					photo {
-// 						url
-// 					}
-// 				}
-// 				createdAt
-// 				slug
-// 				content {
-// 					raw
-// 				}
-// 				categories {
-// 					name
-// 					slug
-// 				}
-// 			}
-// 		}
-// 	`;
-// 	const result = await graphQLClient.request(query, { slug });
-
-// 	return result.post;
-// };
-
 export const getPostDetails = async (slug) => {
 	const query = gql`
 		query GetPostDetails($slug: String!) {
@@ -328,6 +295,41 @@ export const getCategoryPost = async (slug) => {
 	const result = await graphQLClient.request(query, { slug });
 
 	return result.postsConnection.edges;
+};
+
+export const getCategoryProduct = async (slug) => {
+	const query = gql`
+		query GetCategoryProduct($slug: String!) {
+			productsConnection(where: { itemCategory: { slug: $slug } }) {
+				edges {
+					cursor
+					node {
+						id
+						price
+						createdAt
+						description
+						slug
+						itemCategory {
+							slug
+							name
+						}
+						title
+						featuredImage {
+							url
+						}
+						rates {
+							rate
+							id
+						}
+					}
+				}
+			}
+		}
+	`;
+
+	const result = await graphQLClient.request(query, { slug });
+
+	return result.productsConnection.edges;
 };
 
 export const getFeaturedPosts = async () => {

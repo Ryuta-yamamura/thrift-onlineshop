@@ -10,13 +10,13 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
-import { getCategories } from "../services";
+import { getItemCategories } from "../services";
 
 const Header = () => {
 	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		getCategories().then((newCategories) => {
+		getItemCategories().then((newCategories) => {
 			setCategories(newCategories);
 		});
 	}, []);
@@ -79,7 +79,7 @@ const Header = () => {
 			<div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm border-b mb-2">
 				<div className="hidden md:float-left md:contents">
 					{categories.map((category) => (
-						<Link key={category.slug} href={`/category/${category.slug}`}>
+						<Link key={category.slug} href={`/item-category/${category.slug}`}>
 							<span className="link md:float-right mt-2 align-middle text-white ml-4">
 								{category.name}
 							</span>
