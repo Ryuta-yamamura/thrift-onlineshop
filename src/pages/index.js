@@ -6,11 +6,19 @@ import {
 	PostWidget,
 	Header,
 	ProductFeed,
+	TopPostCard,
 } from "../components";
 import { getPosts, getProducts } from "../services";
 import { getSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const Home = ({ posts, products }) => {
+	const [randomNum, setRandomNum] = useState();
+
+	useEffect(() => {
+		setRandomNum(Math.floor(Math.random() * (products.length - 1)));
+	}, []);
+
 	return (
 		<div className="mb-8 ">
 			<Head>
@@ -18,16 +26,21 @@ const Home = ({ posts, products }) => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
-			<FeaturedPosts />
+			<div className="mb-8 ">
+				{posts.slice(randomNum, randomNum + 1).map((post, index) => (
+					<TopPostCard key={index} post={post.node} />
+				))}
+			</div>
+			{/* <div>
+				<FeaturedPosts />
+			</div> */}
 			<div className="grid grid-cols-2 lg:grid-cols-12 gap-8">
 				<div className="lg:col-span-8 col-span-2">
 					{posts.map((post, index) => (
 						<PostCard post={post.node} key={index} />
 					))}
 					{/* ProductFeed */}
-					<div>
-						<ProductFeed products={products} />
-					</div>
+					<ProductFeed products={products} />
 				</div>
 
 				<div className="lg:col-span-4 col-span-2">

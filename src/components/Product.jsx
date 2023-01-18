@@ -60,6 +60,9 @@ function Product({
 						<StarIcon key={i} className="h-3 text-yellow-500" />
 					))} */}
 			</div>
+			<div className="mb-5">
+				<p>¥{price}</p>
+			</div>
 
 			<button onClick={addItemToBasket} className="mt-2 button">
 				カートに追加

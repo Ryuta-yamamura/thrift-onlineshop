@@ -70,6 +70,39 @@ export const getProducts = async () => {
 	return result.productsConnection.edges;
 };
 
+// export const getPostDetails = async (slug) => {
+// 	const query = gql`
+// 		query GetPostDetails($slug: String!) {
+// 			post(where: { slug: $slug }) {
+// 				title
+// 				excerpt
+// 				featuredImage {
+// 					url
+// 				}
+// 				author {
+// 					name
+// 					bio
+// 					photo {
+// 						url
+// 					}
+// 				}
+// 				createdAt
+// 				slug
+// 				content {
+// 					raw
+// 				}
+// 				categories {
+// 					name
+// 					slug
+// 				}
+// 			}
+// 		}
+// 	`;
+// 	const result = await graphQLClient.request(query, { slug });
+
+// 	return result.post;
+// };
+
 export const getPostDetails = async (slug) => {
 	const query = gql`
 		query GetPostDetails($slug: String!) {
@@ -80,8 +113,8 @@ export const getPostDetails = async (slug) => {
 					url
 				}
 				author {
-					name
 					bio
+					name
 					photo {
 						url
 					}
@@ -91,9 +124,30 @@ export const getPostDetails = async (slug) => {
 				content {
 					raw
 				}
+
 				categories {
 					name
 					slug
+				}
+
+				products {
+					id
+					price
+					slug
+					title
+					rates {
+						rate
+						id
+					}
+					itemCategory {
+						name
+						slug
+					}
+					featuredImage {
+						url
+						createdAt
+					}
+					description
 				}
 			}
 		}
@@ -105,7 +159,7 @@ export const getPostDetails = async (slug) => {
 
 export const getRecentPosts = async () => {
 	const query = gql`
-	query GetpostDetails() {
+	query GetRecentPosts() {
 		posts(
 			orderBy: createdAt_ASC
 			last:3
@@ -126,7 +180,7 @@ export const getRecentPosts = async () => {
 
 export const getSimilarPosts = async (categories, slug) => {
 	const query = gql`
-		query GetPostDetails($slug: String!, $categories: [String!]) {
+		query GetSimilarPosts($slug: String!, $categories: [String!]) {
 			posts(
 				where: {
 					slug_not: $slug
@@ -263,7 +317,7 @@ export const getCategoryPost = async (slug) => {
 
 export const getFeaturedPosts = async () => {
 	const query = gql`
-	  query GetCategoryPost() {
+	  query GetFeaturedPosts() {
 		posts(where: {featuredPost: true}) {
 		  author {
 			name

@@ -1871,14 +1871,14 @@
     "@panva/asn1.js" "^1.0.0"
 
 "jose@^4.10.0":
-  "integrity" "sha512-YRv4Tk/Wlug8qicwqFNFVEZSdbROCHRAC6qu/i0dyNKr5JQdoa2pIGoS04lLO/jXQX7Z9omoNewYIVIxqZBd9Q=="
-  "resolved" "https://registry.npmjs.org/jose/-/jose-4.11.1.tgz"
-  "version" "4.11.1"
+  "integrity" "sha512-njj0VL2TsIxCtgzhO+9RRobBvws4oYyCM8TpvoUQwl/MbIM3NFJRR9+e6x0sS5xXaP1t6OCBkaBME98OV9zU5A=="
+  "resolved" "https://registry.npmjs.org/jose/-/jose-4.11.2.tgz"
+  "version" "4.11.2"
 
 "jose@^4.9.3":
-  "integrity" "sha512-YRv4Tk/Wlug8qicwqFNFVEZSdbROCHRAC6qu/i0dyNKr5JQdoa2pIGoS04lLO/jXQX7Z9omoNewYIVIxqZBd9Q=="
-  "resolved" "https://registry.npmjs.org/jose/-/jose-4.11.1.tgz"
-  "version" "4.11.1"
+  "integrity" "sha512-njj0VL2TsIxCtgzhO+9RRobBvws4oYyCM8TpvoUQwl/MbIM3NFJRR9+e6x0sS5xXaP1t6OCBkaBME98OV9zU5A=="
+  "resolved" "https://registry.npmjs.org/jose/-/jose-4.11.2.tgz"
+  "version" "4.11.2"
 
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
@@ -2156,10 +2156,10 @@
   "resolved" "https://registry.npmjs.org/nanoid/-/nanoid-3.3.4.tgz"
   "version" "3.3.4"
 
-"next-auth@^4.18.7":
-  "integrity" "sha512-kR3s1JVPMaDuSAlFxcGyv7Ec3fdE6za71r1F77IOII5zJmW2wfkIA2xj223fM0D20ip2pzFpHfk/qN4L6l5XMA=="
-  "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.18.7.tgz"
-  "version" "4.18.7"
+"next-auth@^4.18.8":
+  "integrity" "sha512-USP8ihmvB7iCGtkS0+toe2QPrzdbZfkydQZX56JOI9Ft5n/BardOXh3D4wQ2An+vpq/jDKojGlgfv21wVElW7A=="
+  "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.18.8.tgz"
+  "version" "4.18.8"
   dependencies:
     "@babel/runtime" "^7.16.3"
     "@panva/hkdf" "^1.0.1"

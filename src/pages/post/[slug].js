@@ -10,10 +10,12 @@ import {
 	CommentsForm,
 	Header,
 	Loader,
+	Product,
 } from "../../components";
 
 const PostDetails = ({ post }) => {
 	const router = useRouter();
+	console.log(post);
 
 	if (router.isFallback) {
 		return <Loader />;
@@ -26,6 +28,19 @@ const PostDetails = ({ post }) => {
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 					<div className="col-span-1 lg:col-span-8">
 						<PostDetail post={post} />
+						<div className="grid grid-cols-2 gap-0 ">
+							{post.products.map((product, i) => (
+								<Product
+									key={i}
+									id={product.id}
+									title={product.title}
+									price={product.price}
+									description={product.description}
+									category={product.itemCategory.name}
+									image={product.featuredImage[0].url}
+								/>
+							))}
+						</div>
 						<Author author={post.author} />
 						<CommentsForm slug={post.slug} />
 						<Comments slug={post.slug} />

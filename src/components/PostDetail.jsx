@@ -71,7 +71,7 @@ const PostDetail = ({ post }) => {
 					alt={post.title}
 					className="object-top h-hull w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
 				/>
-				<div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
+				{/* <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
 					<Image
 						unoptimized
 						// loader={grpahCMSImageLoader}
@@ -84,7 +84,7 @@ const PostDetail = ({ post }) => {
 					<p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
 						{post.author.name}
 					</p>
-				</div>
+				</div> */}
 				<div className="font-medium text-gray-700">
 					<CalendarDaysIcon className="h-6 w-6 inline mr-2 text-pink-500" />
 

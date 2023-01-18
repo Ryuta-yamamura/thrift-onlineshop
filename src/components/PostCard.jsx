@@ -49,7 +49,7 @@ const PostCard = ({ post }) => {
 			<div className="text-center">
 				<Link href={`/post/${post.slug}`}>
 					<span className="transition duration-500 transform hover:-translate-y-1 inline-block rounded-full text-lg font-medium px-8 py-3 button ">
-						Continue Reading
+						記事を読む
 					</span>
 				</Link>
 			</div>
