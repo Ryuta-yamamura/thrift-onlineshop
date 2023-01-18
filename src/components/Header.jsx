@@ -55,15 +55,10 @@ const Header = () => {
 						<></>
 					)}
 					<div onClick={signIn} className="link">
-						<p>
-							{session
-								? `こんにちは ${session.user.name}さん`
-								: `ログインはこちら`}
-						</p>
-						<p className="font-extrabold md:text-sm">Account</p>
+						<p>{session ? `Hello ${session.user.name}さん` : `Login`}</p>
 					</div>
 					<div onClick={() => router.push("/orders")} className="link">
-						<p className="font-extrabold md:text-sm">Orders</p>
+						<p className="font-bold md:text-sm">履歴</p>
 					</div>
 					<div
 						onClick={() => router.push("/checkout")}

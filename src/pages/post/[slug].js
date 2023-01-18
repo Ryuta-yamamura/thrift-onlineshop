@@ -28,29 +28,36 @@ const PostDetails = ({ post }) => {
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 					<div className="col-span-1 lg:col-span-8">
 						<PostDetail post={post} />
-						<div className="grid grid-cols-2 gap-0 ">
-							{post.products.map((product, i) => (
-								<Product
-									key={i}
-									id={product.id}
-									title={product.title}
-									price={product.price}
-									description={product.description}
-									category={product.itemCategory.name}
-									image={product.featuredImage[0].url}
-								/>
-							))}
+						<div className="bg-white shadow-lg rounded-lg p-8 mb-8">
+							<h3 className="text-xl mb-8 font-semibold border-b pb-4">
+								記事に記載されている商品はこちら{" "}
+							</h3>
+							<div className="grid grid-cols-2 gap-0 ">
+								{post.products.map((product, i) => (
+									<Product
+										key={i}
+										id={product.id}
+										title={product.title}
+										price={product.price}
+										description={product.description}
+										category={product.itemCategory.name}
+										image={product.featuredImage[0].url}
+									/>
+								))}
+							</div>
 						</div>
 						<Author author={post.author} />
 						<CommentsForm slug={post.slug} />
 						<Comments slug={post.slug} />
 					</div>
 					<div className="col-span-1 lg:col-span-4">
-						<PostWidget
-							slug={post.slug}
-							categories={post.categories.map((category) => category.slug)}
-						/>
-						<Categories />
+						<div className="lg:sticky relative top-8">
+							<PostWidget
+								slug={post.slug}
+								categories={post.categories.map((category) => category.slug)}
+							/>
+							<Categories />
+						</div>{" "}
 					</div>
 				</div>
 			</div>

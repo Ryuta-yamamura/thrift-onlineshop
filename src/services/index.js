@@ -217,6 +217,21 @@ export const getCategories = async () => {
 	return result.categories;
 };
 
+export const getItemCategories = async () => {
+	const query = gql`
+		query GetItemCategories {
+			itemCategories {
+				name
+				slug
+			}
+		}
+	`;
+
+	const result = await graphQLClient.request(query);
+
+	return result.itemCategories;
+};
+
 export const submitComment = async (obj) => {
 	const result = await fetch(`/api/comments`, {
 		method: "POST",

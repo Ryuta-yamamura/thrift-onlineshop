@@ -2,6 +2,7 @@ import Head from "next/head";
 import { FeaturedPosts } from "../sections/index";
 import {
 	Categories,
+	ItemCategories,
 	PostCard,
 	PostWidget,
 	Header,
@@ -45,6 +46,7 @@ const Home = ({ posts, products }) => {
 
 				<div className="lg:col-span-4 col-span-2">
 					<div className="lg:sticky relative top-8">
+						<ItemCategories />
 						<PostWidget />
 						<Categories />
 					</div>
